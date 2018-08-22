@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {WeatherService} from '../weather.service/weather.service.component';
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  templateUrl: './dashboard.component.component.html',
+  
 })
 export class DashboardComponent implements OnInit {
 

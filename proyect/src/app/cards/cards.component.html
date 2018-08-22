@@ -1,0 +1,13 @@
+<div class="row" >
+  <div class="col-lg-3 col-md-4 " *ngFor='let result of results'>
+    <div class="card alignCards">
+      <div class="card-body cardColor">
+        <h5 class="card-title">{{result.name}}</h5>
+        <p class="card-text">Temperatura: {{result.main.temp}}°</p>
+        <a href="http://localhost:4200/details" class="btn btn-light">Details</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+

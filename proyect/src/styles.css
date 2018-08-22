@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+.cardDetail{
+    width: 50rem;
+    height: 25rem;
+}
+
+.alignDetail{
+    margin: 50px auto;
+    float:none;
+}
+
+.textAlign{
+    text-align: center;
+}
+
+.cardColor{
+    background-color: #98FB98; 
+}

@@ -1,16 +1,49 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { CardsComponent } from './cards/cards.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavComponent } from './nav/nav.component';
+import { DetailsComponent } from './details/details.component';
+import { WeatherService } from './weather.service';
+import { CardDetailsComponent } from './card-details/card-details.component';
+
+const appRoutes: Routes = [
+  { path: 'details/:location',      component: DetailsComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+  { path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
+  },
+  { path: '**',
+  redirectTo: '/dashboard'
+}
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CardsComponent,
+    DashboardComponent,
+    NavComponent,
+    DetailsComponent,
+    CardDetailsComponent
   ],
   imports: [
-    BrowserModule
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true }
+    ),
+    BrowserModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

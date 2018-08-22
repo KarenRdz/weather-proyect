@@ -16,3 +16,7 @@
 .cardColor{
     background-color: #98FB98; 
 }
+
+.alignCards{
+    margin : 15px auto;
+}

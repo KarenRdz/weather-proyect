@@ -1,26 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs';
-import {map} from 'rxjs/operators';
+import {HttpClient,HttpParams} from '@angular/common/http'
+import { Observable, BehaviorSubject } from 'rxjs';
 import 'rxjs';
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class WeatherService {
-  private _baseUrl = 'http://api.openweathermap.org/data/2.5/' as string;
-  private _Apikey = 'e04c99056868fe2075919c78f9217dbd' as string ;
-  constructor(private _http: Http) { }
+  private _baseUrl = 'http://api.openweathermap.org/data/2.5/weather';
+  private _Apikey = 'e04c99056868fe2075919c78f9217dbd' ; 
+  public units$: BehaviorSubject<string> = new BehaviorSubject('metric');
 
-  //public getWeather(city: string, unit: string, lang: string):
-  public getWeather(city: string):
+  constructor(private _http: HttpClient) { }
+
+  public getWeather(city, units):
   Observable<any> {
-    // api.openweathermap.org/data/2.5/find?q=Guadalajara&units=metric&APPID=e04c99056868fe2075919c78f9217dbd&lang=es //
-    //http://api.openweathermap.org/data/2.5/weather?id=5809844&units=imperial 
+    let params = new HttpParams().set('q', city).set('APPID', this._Apikey).set('units', units);
 
-    const url = `${this._baseUrl}find?q=${city}&APPID=${this._Apikey}`;
-
-    return this._http
-    .get(url)
-    .pipe(map (res => res.json().list));
+    return this._http.get(this._baseUrl,{params:params});
   }
 }

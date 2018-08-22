@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CardsComponent } from './cards/cards.component';
@@ -12,11 +13,8 @@ import { WeatherService } from './weather.service';
 import { CardDetailsComponent } from './card-details/card-details.component';
 
 const appRoutes: Routes = [
-  { path: 'details/:location',      component: DetailsComponent },
-  {
-    path: 'dashboard',
-    component: DashboardComponent
-  },
+  { path: 'details',      component: DetailsComponent },
+  { path: 'dashboard',     component: DashboardComponent  },
   { path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
@@ -38,10 +36,11 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true }
+      //{ enableTracing: true }
     ),
     BrowserModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]

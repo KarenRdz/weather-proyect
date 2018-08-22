@@ -7,6 +7,7 @@ import {WeatherService} from './weather.service/weather.service.component';
 import { AppComponent } from './app.component';
 import { DetailsComponent } from './details.component/details.component.component';
 import { DashboardComponent } from './dashboard.component/dashboard.component.component';
+import { NavComponent } from './nav/nav.component';
 
 
 const appRoutes: Routes = [
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DetailsComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavComponent
   ],
   imports: [
     RouterModule.forRoot(

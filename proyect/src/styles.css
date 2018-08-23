@@ -15,10 +15,30 @@
 
 .cardColor{
     background-color: #98FB98; 
+    text-align: center;
 }
 
 .alignCards{
     margin : 15px auto;
+}
+
+.divHeight{
+    height: 100%;
+}
+
+.img-top{
+    width: 50%;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+    display: block;
+    margin: auto;
+}
+
+.headCard{
+    color: #28a745;
+    background-color: transparent;
+    background-image: none;
+    border-color: #28a745;
 }
 
 .styleInput{
@@ -34,4 +54,8 @@
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.aligtextcenter{
+    text-align: center;
 }

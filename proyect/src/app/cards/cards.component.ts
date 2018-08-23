@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {WeatherService} from '../weather.service';
+import { FormGroup } from '../../../node_modules/@angular/forms';
+import { BehaviorSubject } from '../../../node_modules/rxjs';
 
 @Component({
   selector: 'app-cards',
@@ -9,13 +11,18 @@ import {WeatherService} from '../weather.service';
 export class CardsComponent implements OnInit {
 
   public results: any[] = [];
-  city_list = ['Monterrey,MX','Oaxaca,MX','Guadalajara,MX','Victoria,MX','Reynosa,MX','Matamoros,MX','Queretaro,MX','Tampico,MX'];
+  city_list = ['Monterrey,MX','Oaxaca,MX','Guadalajara,MX','London,UK','Canada','Matamoros,MX','Querétaro,MX','Hawaii'];
+  
+
+  @Input()
+  formStr: FormGroup
+
+  ejemplo = false;
 
   constructor(private _WeatherService: WeatherService) { }
 
   ngOnInit() {
     this.initialInfo();
-    
   }
 
   initialInfo(){
@@ -26,18 +33,21 @@ export class CardsComponent implements OnInit {
         .subscribe(res => {
           console.log(res);
           this.results.push(res);
+          
         },
         err => {
           console.error(err);
         });
       });
-
+      
     }
   }
 
-  sendInfo(cityName,i){
+  public sendInfo(cityName){}
 
-  }
+  // sendInfo(cityName){
+  //   //console.log(cityName);
+  // }
 
   public addCity(){
    

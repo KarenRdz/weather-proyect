@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
@@ -14,15 +14,15 @@ import { WeatherService } from './weather.service';
 import { CardDetailsComponent } from './card-details/card-details.component';
 
 const appRoutes: Routes = [
-  { path: 'details',      component: DetailsComponent },
+  {path:'details/:location', component: DetailsComponent},
   { path: 'dashboard',     component: DashboardComponent  },
   { path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
   },
   { path: '**',
-  redirectTo: '/dashboard'
-}
+    redirectTo: '/dashboard'
+  }
 ];
 
 @NgModule({

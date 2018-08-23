@@ -15,6 +15,7 @@ export class CardsComponent implements OnInit {
 
   ngOnInit() {
     this.initialInfo();
+    
   }
 
   initialInfo(){
@@ -30,6 +31,15 @@ export class CardsComponent implements OnInit {
           console.error(err);
         });
       });
+
     }
+  }
+
+  sendInfo(cityName,i){
+
+  }
+
+  public addCity(){
+   
   }
 }

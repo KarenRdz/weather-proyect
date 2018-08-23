@@ -12,9 +12,9 @@
             Degree 
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Celsius</a>
+            <a class="dropdown-item"(click)="changeUnits('metric')">Celsius</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Fahrenheit</a>
+            <a class="dropdown-item" (click)="changeUnits('imperial')">Fahrenheit</a>
           </div>
         </li>
       </ul>

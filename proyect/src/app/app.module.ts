@@ -6,7 +6,7 @@ import {WeatherService} from './weather.service/weather.service.component';
 
 import { AppComponent } from './app.component';
 import { DetailsComponent } from './details.component/details.component.component';
-import { DashboardComponent } from './dashboard.component/dashboard.component.component';
+import { DashComponent } from './dashboard.component/dashboard.component.component';
 import { NavComponent } from './nav/nav.component';
 
 
@@ -14,7 +14,7 @@ const appRoutes: Routes = [
   { path: 'details/:location',      component: DetailsComponent },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashComponent
   },
   { path: '',
     redirectTo: '/dashboard',
@@ -29,7 +29,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DetailsComponent,
-    DashboardComponent,
+    DashComponent,
     NavComponent
   ],
   imports: [

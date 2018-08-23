@@ -1,21 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import {WeatherService} from './weather.service/weather.service.component';
+import { RouterModule, Routes } from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { DetailsComponent } from './details.component/details.component.component';
-import { DashComponent } from './dashboard.component/dashboard.component.component';
+import { CardsComponent } from './cards/cards.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavComponent } from './nav/nav.component';
-
+import { DetailsComponent } from './details/details.component';
+import { WeatherService } from './weather.service';
+import { CardDetailsComponent } from './card-details/card-details.component';
 
 const appRoutes: Routes = [
-  { path: 'details/:location',      component: DetailsComponent },
-  {
-    path: 'dashboard',
-    component: DashComponent
-  },
+  { path: 'details',      component: DetailsComponent },
+  { path: 'dashboard',     component: DashboardComponent  },
   { path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
@@ -28,23 +27,22 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    CardsComponent,
+    DashboardComponent,
+    NavComponent,
     DetailsComponent,
-    DashComponent,
-    NavComponent
+    CardDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true }
+      //{ enableTracing: true }
     ),
     BrowserModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
-
-
-
-
 })
 export class AppModule { }

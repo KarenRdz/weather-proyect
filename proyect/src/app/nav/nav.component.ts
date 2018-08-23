@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  WeatherService } from '../weather.service/weather.service.component'
+import {  WeatherService } from '../weather.service';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -11,9 +11,12 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
   }
+
   public changeUnits(units) {
     this._weatherService.units$.next(units);
   }
 
   public addLocation(nwCity){
-}}
+    
+  }
+}

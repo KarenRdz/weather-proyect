@@ -10,6 +10,7 @@
       <img class="img-top" *ngIf= "result.weather[0].main === 'Clear'" src='https://ssl.gstatic.com/onebox/weather/128/sunny.png'>  
       <img class="img-top" *ngIf= "result.weather[0].main === 'Mist'" src='https://ssl.gstatic.com/onebox/weather/128/cloudy.png'> 
       <img class="img-top" *ngIf= "result.weather[0].main === 'Snow'" src='https://ssl.gstatic.com/onebox/weather/128/snow.png'>
+      <img class="img-top" *ngIf= "result.weather[0].main === 'Drizzle'" src='https://ssl.gstatic.com/onebox/weather/128/rain.png'>
       <div class="card-body cardColor">
         <p class="card-text"> {{result.main.temp}}°</p>
         <p class="card-text"> {{result.weather[0].description}}</p>

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {WeatherService} from '../weather.service';
-import { FormGroup } from '../../../node_modules/@angular/forms';
-import { BehaviorSubject } from '../../../node_modules/rxjs';
+import { FormGroup } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-cards',
@@ -43,11 +43,12 @@ export class CardsComponent implements OnInit {
     }
   }
 
-  public sendInfo(cityName){}
+  // public sendInfo(cityName){}
 
-  // sendInfo(cityName){
-  //   //console.log(cityName);
-  // }
+  sendInfo(cityName){
+    //console.log(cityName);
+    this._WeatherService.cityName$.next(cityName);
+  }
 
   public addCity(){
    

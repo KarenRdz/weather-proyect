@@ -12,8 +12,6 @@ export class WeatherService {
 
   public getWeather(city, units):
   Observable<any> {
-    //http://api.openweathermap.org/data/2.5/weather?q=seattle &units=imperial 
-
     let params = new HttpParams().set('q', city).set('APPID', this._Apikey).set('units', units);
 
     return this._http.get(this._baseUrl+'weather',{params:params});
@@ -21,8 +19,6 @@ export class WeatherService {
 
   public getCity(cityName,units):
   Observable<any> {
-    //http://api.openweathermap.org/data/2.5/weather?q=seattle &units=imperial
-    //api.openweathermap.org/data/2.5/forecast?q=London,us 
     let param = new HttpParams().set('q', cityName).set('APPID', this._Apikey).set('units', units);
     return this._http.get(this._baseUrl+'forecast',{params:param});
 

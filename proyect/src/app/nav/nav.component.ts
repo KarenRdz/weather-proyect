@@ -24,7 +24,7 @@ export class NavComponent implements OnInit {
 
   public addLocation(){
     var nwLocation = this.formInput.get('location');
-    this.stringLoc = nwLocation.value;
+    this.stringLoc = nwLocation.value;   
     //console.log(this.stringLoc);
   }
 }

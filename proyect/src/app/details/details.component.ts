@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-details',
@@ -12,5 +11,6 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
 }

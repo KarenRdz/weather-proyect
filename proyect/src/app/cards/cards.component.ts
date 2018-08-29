@@ -32,8 +32,7 @@ export class CardsComponent implements OnInit {
         this._WeatherService.getWeather(this.city_list[i], units)
         .subscribe(res => {
           console.log(res);
-          this.results.push(res);
-          
+          this.results.push(res);      
         },
         err => {
           console.error(err);

@@ -9,7 +9,8 @@ import {WeatherService} from '../weather.service';
 export class CardDetailsComponent implements OnInit {
   public result: any[] = [];
 
-  listado:any;
+  public listado: any;
+  public listadoArr: any[];
 
   constructor(private _weatherService:WeatherService) { }
 
@@ -27,8 +28,9 @@ export class CardDetailsComponent implements OnInit {
         .subscribe(res =>{
           console.log("aqui",res);
           this.result.push(res);
-          console.log("aqui2 ",res.list[0]);
           this.listado = res.list;
+          //console.log("lista: ",this.listado);
+          this.newArray(this.listado);
         },err => {
           console.error(err);
         });
@@ -36,4 +38,13 @@ export class CardDetailsComponent implements OnInit {
     });
   }
 
+  newArray(lista){
+    // console.log("reult ",this.result);
+    console.log("lista ",lista);
+    for(let lis of lista){
+      var stringDiv =  lis.dt_txt.split(" ");
+      console.log("prueba ",stringDiv);
+
+    }
+  }
 }

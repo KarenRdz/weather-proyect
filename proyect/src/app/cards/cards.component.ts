@@ -23,6 +23,7 @@ export class CardsComponent implements OnInit {
 
   ngOnInit() {
     this.initialInfo();
+    this.addCity();
   }
 
   initialInfo(){
@@ -42,14 +43,22 @@ export class CardsComponent implements OnInit {
     }
   }
 
-  // public sendInfo(cityName){}
-
   sendInfo(cityName){
-    //console.log(cityName);
     this._WeatherService.cityName$.next(cityName);
   }
 
   public addCity(){
-   
+    this._WeatherService.units$.subscribe(units => {
+      this._WeatherService.cityName$.subscribe(cityName =>{
+        this._WeatherService.getWeather(cityName,units).subscribe(data =>{
+          this.results.push(data);
+          this.city_list.push(cityName);
+        })
+      })
+    })
+  }
+
+  public deleteCity(i){
+    this.results.splice(i,1);
   }
 }

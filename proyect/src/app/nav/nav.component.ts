@@ -7,7 +7,6 @@ import {FormGroup, FormBuilder} from '@angular/forms';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  public stringLoc;
   formInput:FormGroup;
   constructor( private _weatherService: WeatherService,private form:FormBuilder) { 
     this.formInput = this.form.group({
@@ -24,7 +23,8 @@ export class NavComponent implements OnInit {
 
   public addLocation(){
     var nwLocation = this.formInput.get('location');
-    this.stringLoc = nwLocation.value;   
-    //console.log(this.stringLoc);
+    var cityVal = nwLocation.value; 
+    this._weatherService.cityName$.next(cityVal);
+    this.formInput.reset();
   }
 }

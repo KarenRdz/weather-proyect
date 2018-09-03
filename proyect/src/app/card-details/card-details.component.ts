@@ -10,7 +10,7 @@ export class CardDetailsComponent implements OnInit {
   public result: any[] = [];
 
   public listado: any;
-  public listadoArr: any[];
+  public date: any[];
 
   constructor(private _weatherService:WeatherService) { }
 
@@ -39,12 +39,10 @@ export class CardDetailsComponent implements OnInit {
   }
 
   newArray(lista){
-    // console.log("reult ",this.result);
     console.log("lista ",lista);
     for(let lis of lista){
       var stringDiv =  lis.dt_txt.split(" ");
-      console.log("prueba ",stringDiv);
-
+      // console.log("prueba ",stringDiv);
     }
   }
 }

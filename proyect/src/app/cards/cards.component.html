@@ -8,7 +8,7 @@
         <img *ngIf="result.weather[0].main === 'Clouds'" src='https://ssl.gstatic.com/onebox/weather/128/cloudy.png'>
         <img *ngIf="result.weather[0].main === 'Rain'" src='https://ssl.gstatic.com/onebox/weather/128/rain.png'>
         <img *ngIf="result.weather[0].main === 'Clear'" src='https://ssl.gstatic.com/onebox/weather/128/sunny.png'>
-
+        <p class="card-text">Temperatura: {{result.main.temp}}°</p>
         <a href="http://localhost:4200/details" class="btn btn-light">Details</a>
       </div>
     </div>

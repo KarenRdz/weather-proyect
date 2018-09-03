@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {WeatherService} from '../weather.service';
 
 @Component({
   selector: 'app-card-details',
@@ -9,7 +10,8 @@ export class CardDetailsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  initialInfo(){}
 }
+

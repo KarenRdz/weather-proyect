@@ -1,0 +1,9 @@
+<div *ngFor='let result of results'>
+  <!--<pre>
+    {{result | json}}
+  </pre>
+-->
+  <h3>{{result.name}}</h3>
+   <p>Temperatura: {{result.main.temp}}°</p> 
+  <p>coordenada:{{result.coord.lat}}{{result.coord.lon}}</p>
+</div>

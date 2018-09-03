@@ -1,0 +1,24 @@
+<div class="aligtextcenter" *ngFor="let resul of result">
+  <h1>The weather for {{resul.city.name}} is: </h1>
+</div>
+<div class="row" >
+    <div class="col-lg-3 col-md-4 " *ngFor='let list of listado'>
+      <div class="card alignCards "> 
+        <div class="card-header headCard aligtextcenter">
+          <h4>Temp</h4>
+        </div>
+        <img class="img-top" *ngIf= "list.weather[0].main === 'Rain'" src='https://ssl.gstatic.com/onebox/weather/128/rain.png'>
+        <img class="img-top" *ngIf= "list.weather[0].main === 'Clouds'" src='https://ssl.gstatic.com/onebox/weather/128/partly_cloudy.png'>
+        <img class="img-top" *ngIf= "list.weather[0].main === 'Clear'" src='https://ssl.gstatic.com/onebox/weather/128/sunny.png'>  
+        <img class="img-top" *ngIf= "list.weather[0].main === 'Mist'" src='https://ssl.gstatic.com/onebox/weather/128/cloudy.png'> 
+        <img class="img-top" *ngIf= "list.weather[0].main === 'Snow'" src='https://ssl.gstatic.com/onebox/weather/128/snow.png'>
+        <img class="img-top" *ngIf= "list.weather[0].main === 'Drizzle'" src='https://ssl.gstatic.com/onebox/weather/128/rain.png'>
+        <img class="img-top" *ngIf= "list.weather[0].main === 'Haze'" src='https://ssl.gstatic.com/onebox/weather/128/cloudy.png'>
+        <div class="card-body cardColor">
+          <p class="card-text">{{list.dt_txt}}</p>
+          <p class="card-text"> Max Temp: {{list.main.temp_max}}°</p>
+          <p class="card-text"> Min Temp: {{list.main.temp_min}}°</p>
+        </div>    
+      </div>
+    </div>
+  </div>

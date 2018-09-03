@@ -1,27 +1,29 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {WeatherService} from '../weather.service';
+import { WeatherService } from '../weather.service';
 import { FormGroup } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css']
 })
+
 export class CardsComponent implements OnInit {
 
   public results: any[] = [];
-  city_list = ['Monterrey,MX','Oaxaca,MX','Guadalajara,MX','London,UK','Canada','Matamoros,MX','Querétaro,MX','Hawaii'];
+  city_list = ['Monterrey,N.L.','Oaxaca,MX','Guadalajara,MX','London,UK','Canada','Matamoros,MX','Querétaro,MX','Hawaii'];
   
 
   @Input()
   formStr: FormGroup
 
-  ejemplo = false;
-
   constructor(private _WeatherService: WeatherService) { }
 
   ngOnInit() {
+    if(JSON.parse(localStorage.getItem('cities'))){
+      this.city_list[''];
+      this.results = JSON.parse(localStorage.getItem('cities'));
+    }
     this.initialInfo();
     this.addCity();
   }
@@ -38,8 +40,7 @@ export class CardsComponent implements OnInit {
         err => {
           console.error(err);
         });
-      });
-      
+      });     
     }
   }
 
@@ -53,6 +54,7 @@ export class CardsComponent implements OnInit {
         this._WeatherService.getWeather(cityName,units).subscribe(data =>{
           this.results.push(data);
           this.city_list.push(cityName);
+          localStorage.setItem('cities', JSON.stringify(this.results));
         })
       })
     })
@@ -60,5 +62,6 @@ export class CardsComponent implements OnInit {
 
   public deleteCity(i){
     this.results.splice(i,1);
+    localStorage.setItem('cities', JSON.stringify(this.results));
   }
 }

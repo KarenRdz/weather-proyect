@@ -26,7 +26,7 @@ export class CardDetailsComponent implements OnInit {
       .subscribe(units =>{
         this._weatherService.getCity(cityName,units)
         .subscribe(res =>{
-          console.log("aqui",res);
+          // console.log("aqui",res);
           this.result.push(res);
           this.listado = res.list;
           //console.log("lista: ",this.listado);
@@ -42,7 +42,8 @@ export class CardDetailsComponent implements OnInit {
     console.log("lista ",lista);
     for(let lis of lista){
       var stringDiv =  lis.dt_txt.split(" ");
-      // console.log("prueba ",stringDiv);
+      console.log("stringDiv ",stringDiv);
+      
     }
   }
 }

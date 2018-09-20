@@ -10,7 +10,7 @@ export class CardDetailsComponent implements OnInit {
   public result: any[] = [];
 
   public listado: any;
-  public date: any[];
+  public dias: any[];
 
   constructor(private _weatherService:WeatherService) { }
 
@@ -38,12 +38,25 @@ export class CardDetailsComponent implements OnInit {
     });
   }
 
+  groupBy(arr,prop){
+    let week = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+    return arr.reduce(function(groups, item) {
+          const valAnt = item[prop];
+          const val = valAnt.split(" ");
+          // var dateStr = new Date(val[0]);
+          // var gDay = dateStr.getDay();
+          // arr.prototype.day = week[gDay];
+          groups[val[0]] = groups[val[0]] || []
+          groups[val[0]].push(item)
+          return groups
+    }, {})
+  }
+
   newArray(lista){
-    console.log("lista ",lista);
-    for(let lis of lista){
-      var stringDiv =  lis.dt_txt.split(" ");
-      console.log("stringDiv ",stringDiv);
-      
-    }
+     console.log("lista ",lista);
+    let stringDiv,dateStr, gDay,day,dayAcum;
+    let week = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+    this.dias = this.groupBy(lista,"dt_txt");
+    console.log(this.dias);
   }
 }

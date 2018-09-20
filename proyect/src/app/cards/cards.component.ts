@@ -20,10 +20,10 @@ export class CardsComponent implements OnInit {
   constructor(private _WeatherService: WeatherService) { }
 
   ngOnInit() {
-    if(JSON.parse(localStorage.getItem('cities'))){
-      this.city_list[''];
-      this.results = JSON.parse(localStorage.getItem('cities'));
-    }
+    // if(JSON.parse(localStorage.getItem('cities'))){
+    //   this.city_list[''];
+    //   this.results = JSON.parse(localStorage.getItem('cities'));
+    // }
     this.initialInfo();
     this.addCity();
   }

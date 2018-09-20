@@ -1,0 +1,26 @@
+<div class="row" >
+  <div class="col-lg-3 col-md-4 " *ngFor='let result of results; let i = index'>
+    <button type="button" class="close" aria-label="Close" (click) = "deleteCity(i)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="card alignCards "> 
+      <div class="card-header headCard aligtextcenter">
+        <h4>{{result.name}}</h4>
+      </div>
+      <img class="img-top" *ngIf= "result.weather[0].main === 'Rain'" src='https://ssl.gstatic.com/onebox/weather/128/rain.png'>
+      <img class="img-top" *ngIf= "result.weather[0].main === 'Clouds'" src='https://ssl.gstatic.com/onebox/weather/128/partly_cloudy.png'>
+      <img class="img-top" *ngIf= "result.weather[0].main === 'Clear'" src='https://ssl.gstatic.com/onebox/weather/128/sunny.png'>  
+      <img class="img-top" *ngIf= "result.weather[0].main === 'Mist'" src='https://ssl.gstatic.com/onebox/weather/128/rain.png'> 
+      <img class="img-top" *ngIf= "result.weather[0].main === 'Snow'" src='https://ssl.gstatic.com/onebox/weather/128/snow.png'>
+      <img class="img-top" *ngIf= "result.weather[0].main === 'Drizzle'" src='https://ssl.gstatic.com/onebox/weather/128/rain.png'>
+      <img class="img-top" *ngIf= "result.weather[0].main === 'Haze'" src='https://ssl.gstatic.com/onebox/weather/128/cloudy.png'>
+      <div class="card-body cardColor">
+        <p class="card-text"> {{result.main.temp}}°</p>
+        <p class="card-text"> {{result.weather[0].description}}</p>
+        <a  class="btn btn-light" [routerLink]="['/details/',result.name]" (click) = "sendInfo(result.name)">Details</a>
+      </div>    
+    </div>
+  </div>
+</div>
+
+
